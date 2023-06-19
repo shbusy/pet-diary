@@ -12,3 +12,15 @@ Route::controller(\App\Http\Controllers\Auth\RegisterController::class)->group(f
         Route::post('/register', 'register');
     });
 });
+
+// 로그인, 로그아웃 라우터 설정
+Route::controller(\App\Http\Controllers\Auth\LoginController::class)->group(function () {
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', 'showLoginForm')
+            ->name('login');
+        Route::post('/login', 'login');
+    });
+    Route::post('/logout', 'logout')
+        ->name('logout')
+        ->middleware('auth');
+});
