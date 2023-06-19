@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 */
 
 Route::get('/', [Controller::class, 'index']);
+Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 
 /*Route::get('/', function () {
     return view('welcome');
