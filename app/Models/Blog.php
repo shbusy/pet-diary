@@ -23,4 +23,9 @@ class Blog extends Model
     {
         return 'name';
     }
+
+    public function subscribers() {
+        // M:N 관계 설정
+        return $this->belongsToMany(User::class)->as('subscription');
+    }
 }

@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function blogs() {
         return $this->hasMany(Blog::class);
     }
+
+    public function subscriptions() {
+        return $this->belongsToMany(Blog::class)
+            ->as('subscription');
+    }
 }
