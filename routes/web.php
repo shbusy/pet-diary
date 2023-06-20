@@ -15,9 +15,13 @@ use App\Http\Controllers\Controller;
 */
 
 Route::get('/', [Controller::class, 'index']);
+
 Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
+Route::controller(\App\Http\Controllers\SubscribeController::class)
+    ->group(function () {
+        Route::post('subscribe', 'subscribe')
+            ->name('subscribe');
+        Route::post('unsubscribe', 'unsubscribe')
+            ->name('unsubscribe');
+    });
