@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -15,14 +14,22 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request) {
 
-         auth()->attempt(); // 로그인
-        /*if (! auth()->attempt($request->validated(), $request->boolean('remember'))) { // 유효성검사, 로그인유지 실패시 에러화면으로 던져
-            return back()->withErrors([
-                'failed' => __('auth.failed'),
-            ]);
-        }*/
+        $credentials = $request->validate([
+            'email'=> ['required', 'email', 'exists:users', 'max:255'],
+            'password' => ['required', 'max:255']
+        ]);
 
-        return redirect()->intended(); // 로그인이 끝나면 다시 접속하려던 페이지로 돌아갈 것
+        if (!auth()->attempt($credentials)) {
+            return with([
+                'msg' => "f"
+            ]);
+        }
+
+        $request->session()->regenerate();
+        return with([
+            'msg' => "s",
+            'url' => url()->previous()
+        ]);
     }
 
     public function logout() {
