@@ -32,5 +32,23 @@
             </ul>
         @endauth
 
+        @auth
+            <ul>
+                @can('create', [\App\Models\Post::class, $blog])
+                    <li><a href="{{ route('blogs.posts.create', $blog) }}">글쓰기</a></li>
+                @endcan
+            </ul>
+        @endauth
+
+        <ul>
+            @foreach ($posts as $post)
+                <li>
+                    <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+                </li>
+            @endforeach
+        </ul>
+
+        {{ $posts->links() }} {{-- 페이징 필요할때 컨트롤러에서 pagenate 주석 해제 --}}
+
     </header>
 @endsection
