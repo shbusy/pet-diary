@@ -18,7 +18,7 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Blog $blog)
     {
         return view('blogs.index', [
             'blogs' => Blog::all()
@@ -55,7 +55,8 @@ class BlogController extends Controller
         return view('blogs.show', [
             'blog' => $blog,
             'owned' => $user->blogs()->find($blog->id),
-            'subscribed' => $blog->subscribers()->find($user->id)
+            'subscribed' => $blog->subscribers()->find($user->id),
+            'posts' => $blog->posts()->latest()->paginate()
         ]);
     }
 
@@ -78,7 +79,8 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        $blog->update($request->validated());
+        $blog->update(
+            $request->only(['name', 'display_name']));
 
         return to_route('blogs.index');
     }
