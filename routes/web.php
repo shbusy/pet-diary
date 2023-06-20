@@ -14,7 +14,10 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', [Controller::class, 'index']);
+Route::controller(\App\Http\Controllers\Controller::class)
+    ->group(function () {
+        Route::get('/', 'index');
+    });
 
 Route::resource('blogs', \App\Http\Controllers\BlogController::class);
 
@@ -25,3 +28,6 @@ Route::controller(\App\Http\Controllers\SubscribeController::class)
         Route::post('unsubscribe', 'unsubscribe')
             ->name('unsubscribe');
     });
+
+Route::resource('blogs.posts', \App\Http\Controllers\PostController::class)
+    ->shallow();
