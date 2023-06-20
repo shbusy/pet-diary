@@ -6,8 +6,10 @@
 2023.6.19~
 
 
+
 # Environment
 <img src="https://img.shields.io/badge/PHP-FFAE1A?style=for-the-badge&logo=php&logoColor=#white"> <img src="https://img.shields.io/badge/laravel-8BC0D0?style=for-the-badge&logo=laravel&logoColor=#white"> <img src="https://img.shields.io/badge/html5-00A98F?style=for-the-badge&logo=html5&logoColor=#white"> <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=#white"> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=#white"> <img src="https://img.shields.io/badge/mysql-EF2D5E?style=for-the-badge&logo=mysql&logoColor=#white"> <img src="https://img.shields.io/badge/PhpStorm-A100FF?style=for-the-badge&logo=PhpStorm&logoColor=#white"> <img src="https://img.shields.io/badge/composer-885630?style=for-the-badge&logo=composer&logoColor=#white"> <img src="https://img.shields.io/badge/bootstrap-ECD53F?style=for-the-badge&logo=bootstrap&logoColor=#white">
+
 
 
 
