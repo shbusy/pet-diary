@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    public function __construct() {
+        // BlogPolicy의 정책클래스 메서드를 컨트롤러와 매칭
+        $this->authorizeResource(Blog::class, 'blog');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -41,10 +48,14 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blog $blog)
+    public function show(Request $request, Blog $blog)
     {
+        $user = $request->user();
+
         return view('blogs.show', [
-            'blog' => $blog
+            'blog' => $blog,
+            'owned' => $user->blogs()->find($blog->id),
+            'subscribed' => $blog->subscribers()->find($user->id)
         ]);
     }
 
@@ -53,6 +64,10 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        if(! Gate::allows('update-blog', $blog)) {
+            abort(403);
+        }
+
         return view('blogs.edit', [
             'blog' => $blog
         ]);
