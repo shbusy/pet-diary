@@ -28,4 +28,8 @@ class Blog extends Model
         // M:N 관계 설정
         return $this->belongsToMany(User::class)->as('subscription');
     }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 }
