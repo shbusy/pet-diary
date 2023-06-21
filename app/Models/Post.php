@@ -12,10 +12,16 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
+        'img_link',
     ];
 
+    // 블로는 다수의 포스트를 가진다
     public function blog() {
-        // 블로는 다수의 포스트를 가진다
         return $this->belongsTo(Blog::class);
+    }
+
+    // 랜덤한 글 3개를 메인에 노출
+    public static function getRandomPosts() {
+        return self::inRandomOrder()->limit(3)->get();
     }
 }
