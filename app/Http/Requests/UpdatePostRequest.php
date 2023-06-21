@@ -23,7 +23,8 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'content' => 'required|string'
+            'content' => 'required|string',
+            'img_link' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }
