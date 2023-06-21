@@ -43,9 +43,21 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request, Blog $blog)
     {
-        $post = $blog->posts()->create(
-            $request->only(['title', 'content'])
-        );
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'img' => 'image|mimes:jpeg,png,jpg,gif',
+        ]);
+
+        $request_post = $request->only(['title', 'content']);
+
+        if($request->hasFile('img')) {
+            $img = $request->file('img');
+            $img_path = $img->store('/', 'custom');
+            $request_post['img_link'] = $img_path;
+        }
+
+        $post = $blog->posts()->create($request_post);
 
         return to_route('posts.show', $post);
     }
@@ -75,9 +87,15 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $post->update(
-            $request->only(['title', 'content'])
-        );
+        $request_post = $request->only(['title', 'content']);
+
+        if($request->hasFile('img') != null) {
+            $img = $request->file('img');
+            $img_path = $img->store('/', 'custom');
+            $request_post['img_link'] = $img_path;
+        }
+
+        $post->update($request_post);
 
         return to_route('posts.show', $post);
     }
