@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
-@section('title', $blog->display_name)
+@section('header', $blog->display_name)
 
 @section('content')
     <header>
-        <h3>{{ $blog->display_name }}</h3>
-
         @unless($owned)
             @unless($subscribed)
                 <form action="{{ route('subscribe') }}" method="POST">
