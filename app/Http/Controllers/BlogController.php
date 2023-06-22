@@ -20,8 +20,10 @@ class BlogController extends Controller
      */
     public function index(Blog $blog)
     {
+        $user_id = auth()->id(); // 현재 접속한 유저의 아이디
+
         return view('blogs.index', [
-            'blogs' => Blog::all()
+            'blogs' => $blog->where('user_id', $user_id)->get(),
         ]);
     }
 
