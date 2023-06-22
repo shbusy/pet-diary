@@ -1,14 +1,24 @@
 @extends('layouts.app')
 
-@section('title', '새로운 블로그 만들기')
+@section('header', 'New Feed')
 
 @section('content')
-    <form action="{{ route('blogs.store') }}" method="POST">
-        @csrf
-
-        <p>블로그이름 : <input type="text" id="name" name="name" value="{{ old('name') }}"></p>
-        <p>표시되는 이름 : <input type="text" id="display_name" name="display_name" value="{{ old('display_name') }}"></p>
-
-        <p><button type="submit">블로그 만들기</button></p>
-    </form>
+    <div class="col-lg-6">
+        <form action="{{ route('blogs.store') }}" method="POST">
+            @csrf
+            <fieldset>
+                <div class="form-group">
+                    <label for="name" class="form-label mt-4">Feed Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="display_name" class="form-label mt-4">Display Name</label>
+                    <input type="text" class="form-control" id="display_name" name="display_name" value="{{ old('display_name') }}" required>
+                </div>
+            </fieldset>
+            <p class="bs-component">
+                <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Submit</button>
+            </p>
+        </form>
+    </div>
 @endsection

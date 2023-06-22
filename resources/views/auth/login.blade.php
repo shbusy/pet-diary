@@ -1,16 +1,30 @@
 @extends('layouts.app')
 
-@section('title', '로그인')
+@section('header', 'Login')
 
 @section('content')
-    <form action="{{ route('login') }}" name="login_form" id="login_form" method="GET">
-        @csrf
-        <p>이메일 : <input type="text" name="email" value="{{ old('email') }}"></p>
-        <p>비밀번호 : <input type="password" name="password"></p>
-        <p><input type="checkbox" name="remember">자동로그인</p>
-
-        <p><button type="button" id="login_button">로그인</button></p>
-    </form>
+    <div class="col-lg-6">
+        <form action="{{ route('login') }}" name="login_form" id="login_form" method="GET">
+            @csrf
+            <fieldset>
+                <div class="form-group">
+                    <label for="email" class="form-label mt-4">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label mt-4">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
+                </div>
+                <div class="form-check form-switch" style="margin-top:20px">
+                    <input class="form-check-input" type="checkbox" id="remember" name="remember" checked="">
+                    <label class="form-check-label" for="remember">Auto Login</label>
+                </div>
+                <p class="bs-component">
+                    <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Submit</button>
+                </p>
+            </fieldset>
+        </form>
+    </div>
     <script>
         $(function (){
             $("#login_button").click(function() {
