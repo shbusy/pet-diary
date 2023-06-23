@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DateHelper;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
@@ -54,11 +55,17 @@ class BlogController extends Controller
     {
         $user = $request->user();
 
+        $posts = $blog->posts()->latest()->paginate(6);
+
+        foreach($posts as $post) {
+            $post->created_at_format = DateHelper::DateFormat($post->created_at);
+        }
+
         return view('blogs.show', [
             'blog' => $blog,
             'owned' => $user->blogs()->find($blog->id),
             'subscribed' => $blog->subscribers()->find($user->id),
-            'posts' => $blog->posts()->latest()->paginate()
+            'posts' => $posts
         ]);
     }
 
