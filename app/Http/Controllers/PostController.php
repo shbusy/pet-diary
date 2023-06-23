@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function index(Blog $blog)
     {
-        return view('blogs.posts.index', [
+        return view('blogs.show', [
             'posts' => $blog->posts()->latest()->paginate()
         ]);
     }
@@ -107,6 +107,6 @@ class PostController extends Controller
     {
         $post -> delete();
 
-        return to_route('blogs.posts.index', $post -> blog);
+        return to_route('blogs.show', $post -> blog);
     }
 }
