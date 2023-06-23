@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         @if($post->img_link)
-                            <img src="{{ '/images/'. $post->img_link }}" alt="image" style="width: 100%; height: auto; display: block;">
+                            <img src="{{ '/images/'. $post->img_link }}" alt="image" style="width: 100%; height: auto; display: block; padding: 10px;border-radius: 5%;">
                         @endif
                     </div>
                     <div class="card-body">
@@ -27,7 +27,7 @@
                         <li class="list-group-item">아직 댓글이 없어요. 댓글을 달아주세요 (작업중)</li>
                     </ul>
                     <div class="card-footer text-muted">
-                        {{ "몇시간 전 작성" }}
+                        {{ $post->created_at_format }}
                     </div>
                 </div>
             </div>
