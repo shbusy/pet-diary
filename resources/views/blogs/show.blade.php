@@ -23,30 +23,44 @@
         @endunless
 
         @auth
-            <ul>
-                @can(['update', 'delete'], $blog)
-                    <li><a href="{{ route('blogs.edit', $blog) }}">블로그 관리</a></li>
-                @endcan
-            </ul>
+            @can(['update', 'delete'], $blog)
+                <p class="bs-component">
+                    <button type="button" class="btn btn-outline-primary" onclick="location.href='{{ route('blogs.edit', $blog) }}'">Setting</button>
+                </p>
+            @endcan
         @endauth
-
-        @auth
-            <ul>
-                @can('create', [\App\Models\Post::class, $blog])
-                    <li><a href="{{ route('blogs.posts.create', $blog) }}">글쓰기</a></li>
-                @endcan
-            </ul>
-        @endauth
-
-        <ul>
-            @foreach ($posts as $post)
-                <li>
-                    <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
-                </li>
-            @endforeach
-        </ul>
-
-        {{ $posts->links() }} {{-- 페이징 필요할때 컨트롤러에서 pagenate 주석 해제 --}}
-
     </header>
+
+    @auth
+        <ul>
+            @can('create', [\App\Models\Post::class, $blog])
+                <div class="d-grid gap-2">
+                    <button class="btn btn-lg btn-primary" type="button" onclick="location.href='{{ route('blogs.posts.create', $blog) }}'">+ New Post</button>
+                </div>
+            @endcan
+        </ul>
+    @endauth
+
+    @foreach ($posts as $post)
+        <div class="col-lg-4">
+            <div class="bs-component">
+                <div class="card mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5><p>{{ $post->created_at_format }}</p><p><small><a href="{{ route('posts.show', $post) }}" style="text-decoration: none; color: #888;">{{ $post->title }}</a></small></p></h5>
+                            @if($post->img_link)
+                                <div>
+                                    <a href="{{ route('posts.show', $post) }}"><img src="{{ '/images/'. $post->img_link }}" alt="images" style="width: 100%; border-radius: 3%;"></a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    {{ $posts->links('pagenation.custom') }}
+
 @endsection
