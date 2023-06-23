@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
-@section('title', $post->title)
+@section('header', $post->title)
 
 @section('content')
     <header>
-        <h1>{{ $post->title }}</h1>
-
         @can(['update', 'delete'], $post)
             <p class="bs-component">
                 <button type="button" onclick="location.href='{{ route('posts.edit', $post) }}'" class="btn btn-warning">edit</button>
@@ -19,7 +17,8 @@
             </form>
         @endcan
     </header>
-
-    <article><img src="{{ '/images/'. $post->img_link }}" alt="image"></article>
+    @if($post->img_link)
+        <article><img src="{{ '/images/'. $post->img_link }}" alt="image"></article>
+    @endif
     <article>{{ $post->content }}</article>
 @endsection

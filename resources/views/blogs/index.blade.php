@@ -19,7 +19,11 @@
                 @if($post_cnt > 0)
                     @foreach($post as $post)
                         <div class="card-body" style="display: inline-block; width: 17%; float: left;">
-                            <a href="{{ route('posts.show', $post) }}"><img src="{{ '/images/'. $post->img_link }}" style="width: 72%; border-radius: 70%; margin: 10px" alt="images"></a>
+                            @if($post->img_link)
+                                <a href="{{ route('posts.show', $post) }}"><img src="{{ '/images/'. $post->img_link }}" style="width: 72%; border-radius: 70%; margin: 10px" alt="images"></a>
+                            @else
+                                <a href="{{ route('posts.show', $post) }}"><img src="{{ '/images/no_image.jpg' }}" style="width: 72%; border-radius: 70%; margin: 10px" alt="images"></a>
+                            @endif
                             <a href="{{ route('posts.show', $post) }}" style="text-decoration: none;"><p class="text-body"><small>{{ $post->title }}</small></p></a>
                         </div>
                     @endforeach

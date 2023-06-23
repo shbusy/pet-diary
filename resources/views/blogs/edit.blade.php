@@ -1,24 +1,35 @@
 @extends('layouts.app')
 
-@section('title', '블로그 관리')
+@section('header', 'Setting blog')
 
 @section('content')
-    <div>
+    <div class="col-lg-6">
         <form action="{{ route('blogs.update', $blog) }}" method="POST">
             @method('PUT')
             @csrf
 
-            <p>블로그명 : <input type="text" name="name" value="{{ $blog->name }}"></p>
-            <p>표시되는 이름 : <input type="text" name="display_name" value="{{ $blog->display_name }}"></p>
+            <fieldset>
+                <div class="form-group">
+                    <label for="name" class="form-label mt-4">Feed Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ $blog->name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="display_name" class="form-label mt-4">Display Name</label>
+                    <input type="text" class="form-control" id="display_name" name="display_name" value="{{ $blog->display_name }}" required>
+                </div>
+            </fieldset>
 
-            <p><button type="submit">이름 바꾸기</button></p>
+            <p class="bs-component">
+                <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Submit</button>
+            </p>
         </form>
-
         <form action="{{ route('blogs.destroy', $blog) }}" method="POST">
             @method('DELETE')
             @csrf
 
-            <button type="submit">삭제</button>
+            <p class="bs-component">
+                <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-danger">Delete Blog</button>
+            </p>
         </form>
     </div>
 @endsection
