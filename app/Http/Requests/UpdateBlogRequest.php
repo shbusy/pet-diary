@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Blog;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateBlogRequest extends FormRequest
 {
@@ -21,9 +23,18 @@ class UpdateBlogRequest extends FormRequest
      */
     public function rules(): array
     {
+        $blogId = $this->route('blog');
+
         return [
-            'name' => 'required|unique:blogs,name|max:255|min:4',
+            'name' => [
+                'required',
+                //'unique:blogs,name',
+                Rule::unique('blogs')->ignore($blogId),
+                'max:255',
+                'min:4'
+            ],
             'display_name' => 'required|max:255',
+            'description' => 'required|max:50',
         ];
     }
 }
