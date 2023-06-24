@@ -88,8 +88,7 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        $blog->update(
-            $request->only(['name', 'display_name']));
+        $blog->update($request->validated());
 
         return to_route('blogs.index');
     }
