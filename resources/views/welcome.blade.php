@@ -9,14 +9,14 @@
         <div class="col-lg-4">
             <div class="bs-component">
                 <div class="card mb-3">
-                    <h4 class="card-header">{{ $post->blog->display_name }}</h4>
+                    <h4 class="card-header"><a href="{{ route('blogs.show', $post->blog) }}" style="text-decoration: none; color: #888;">{{ $post->blog->display_name }}</a></h4>
                     <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
+                        <h5 class="card-title"><a href="{{ route('posts.show', $post) }}" style="text-decoration: none; color: #888;">{{ $post->title }}</a></h5>
                         <h6 class="card-subtitle text-muted">{{ $post->blog->user->name  }}</h6>
                     </div>
                     <div>
                         @if($post->img_link)
-                            <img src="{{ '/images/'. $post->img_link }}" alt="image" style="width: 100%; height: auto; display: block; padding: 10px;border-radius: 5%;">
+                            <a href="{{ route('posts.show', $post) }}"><img src="{{ '/images/'. $post->img_link }}" alt="image" style="width: 100%; height: auto; display: block; padding: 10px;border-radius: 5%;"></a>
                         @endif
                     </div>
                     <div class="card-body">
