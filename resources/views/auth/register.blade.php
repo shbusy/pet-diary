@@ -13,7 +13,10 @@
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label mt-4">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror " id="email" name="email" value="{{ old('email') }}" required aria-describedby="emailHelp" placeholder="Enter email">
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label mt-4">Password</label>
