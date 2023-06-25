@@ -16,6 +16,7 @@ class StoreBlogRequest extends FormRequest
         return [
             'name' => 'required|unique:blogs,name|max:255|min:4',
             'display_name' => 'required|max:255',
+            'description' => 'required|max:50',
         ];
     }
 }

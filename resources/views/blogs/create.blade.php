@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description" class="form-label mt-4">Description</label>
-                    <textarea class="form-control" id="description" name="description">{{ old('display_name') }}</textarea>
+                    <textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
                 </div>
             </fieldset>
             <p class="bs-component">
