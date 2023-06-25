@@ -3,22 +3,25 @@
 @section('header', $blog->display_name)
 
 @section('content')
-    <header>
         @unless($owned)
             @unless($subscribed)
-                <form action="{{ route('subscribe') }}" method="POST">
+                <form action="{{ route('subscribe') }}" method="POST" id="sub_form">
                     @csrf
                     <input type="hidden" name="blog_id" value="{{ $blog->id }}">
 
-                    <button>구독</button>
                 </form>
+                <p class="bs-component">
+                    <button type="submit" id="sub_button" class="btn btn-outline-primary" onclick="$('#sub_form').submit();">Subscription</button>
+                </p>
             @else
-                <form action="{{ route('unsubscribe') }}" method="POST">
+                <form action="{{ route('unsubscribe') }}" method="POST" id="unsub_form">
                     @csrf
                     <input type="hidden" name="blog_id" value="{{ $blog->id }}">
 
-                    <button>구독취소</button>
                 </form>
+                <p class="bs-component">
+                    <button type="submit" id="unsub_button" class="btn btn-outline-warning" onclick="$('#unsub_form').submit();">Unsubscribe</button>
+                </p>
             @endunless
         @endunless
 
@@ -29,7 +32,6 @@
                 </p>
             @endcan
         @endauth
-    </header>
 
     @auth
         <ul>
