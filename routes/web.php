@@ -19,7 +19,7 @@ Route::controller(\App\Http\Controllers\Controller::class)
         Route::get('/', 'index');
     });
 
-Route::resource('blogs', \App\Http\Controllers\BlogController::class);
+Route::middleware('auth')->resource('blogs', \App\Http\Controllers\BlogController::class);
 
 Route::controller(\App\Http\Controllers\SubscribeController::class)
     ->group(function () {
@@ -29,5 +29,5 @@ Route::controller(\App\Http\Controllers\SubscribeController::class)
             ->name('unsubscribe');
     });
 
-Route::resource('blogs.posts', \App\Http\Controllers\PostController::class)
+Route::middleware('auth')->resource('blogs.posts', \App\Http\Controllers\PostController::class)
     ->shallow();
