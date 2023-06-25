@@ -24,11 +24,13 @@ Laravel Framework 10.13.5
 
 <img src="https://github.com/shbusy/cafe24pro/assets/136554514/01865cc9-051f-4a6c-814a-d1961c9e888d" style="width: 30%; height: auto;">
 
+
 - 로그인하여 내 피드를 만들 수 있습니다.
 
 <img src="https://github.com/shbusy/cafe24pro/assets/136554514/5a3a8de7-e4e1-4dfc-9f29-ff178552d016" style="width: 30%; height: auto;">
 
 <img src="https://github.com/shbusy/cafe24pro/assets/136554514/af52d7b5-949a-4f9d-b0ce-1fe689549417" style="width: 30%; height: auto;">
+
 
 
 - 피드에 귀여운 반려동물과의 추억을 업로드 할 수 있습니다.
@@ -38,6 +40,7 @@ Laravel Framework 10.13.5
 <img src="https://github.com/shbusy/cafe24pro/assets/136554514/5327264d-3f6d-4c2a-9651-f16501397fad" style="width: 30%; height: auto;">
 
 <img src="https://github.com/shbusy/cafe24pro/assets/136554514/4827911f-81b6-4d55-8a7b-a9204a53c9d5" style="width: 30%; height: auto;">
+
 
 
 
