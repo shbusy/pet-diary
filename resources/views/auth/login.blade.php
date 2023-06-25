@@ -20,7 +20,8 @@
                     <label class="form-check-label" for="remember">Auto Login</label>
                 </div>
                 <p class="bs-component">
-                    <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Submit</button>
+                    <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Login</button>
+                    <button style="margin-top:20px" class="btn btn-warning" onclick="{{ route('register') }}">Join</button>
                 </p>
             </fieldset>
         </form>
