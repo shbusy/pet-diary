@@ -21,7 +21,7 @@
                 </div>
                 <p class="bs-component">
                     <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Login</button>
-                    <button style="margin-top:20px" class="btn btn-warning" onclick="{{ route('register') }}">Join</button>
+                    <button type="button" style="margin-top:20px" class="btn btn-warning" onclick="location.href='{{ route('register') }}'">Join</button>
                 </p>
             </fieldset>
         </form>
