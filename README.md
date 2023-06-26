@@ -22,7 +22,7 @@ Laravel Framework 10.13.5
 # Description
 - 로그인하지 않아도 메인에서 랜덤 포스트를 볼 수 있습니다.
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/b87c3f9f-d50f-4fd6-afae-f5faeca20e9c" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/c055f6ad-901e-41e5-b517-6d2dac49be19" style="width: 30%; height: auto;">
 
 
 - 로그인하여 내 피드를 만들 수 있습니다.
