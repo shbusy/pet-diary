@@ -22,29 +22,30 @@ Laravel Framework 10.13.5
 # Description
 - 로그인하지 않아도 메인에서 랜덤 포스트를 볼 수 있습니다.
 
-<img src="https://github.com/shbusy/cafe24pro/assets/136554514/01865cc9-051f-4a6c-814a-d1961c9e888d" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/b87c3f9f-d50f-4fd6-afae-f5faeca20e9c" style="width: 30%; height: auto;">
 
 
 - 로그인하여 내 피드를 만들 수 있습니다.
 
-<img src="https://github.com/shbusy/cafe24pro/assets/136554514/5a3a8de7-e4e1-4dfc-9f29-ff178552d016" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/2b11411c-65e7-4731-9db1-0c61dd15d2e2" style="width: 30%; height: auto;">
 
-<img src="https://github.com/shbusy/cafe24pro/assets/136554514/af52d7b5-949a-4f9d-b0ce-1fe689549417" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/b77764b2-1bc4-4f1c-84a8-7f0d35e1ac5f" style="width: 30%; height: auto;">
+
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/4a750cda-051d-4d37-8951-05b5a75245c8" style="width: 30%; height: auto;">
 
 
 
 - 피드에 귀여운 반려동물과의 추억을 업로드 할 수 있습니다.
 
-<img src="https://github.com/shbusy/cafe24pro/assets/136554514/de02891e-51e7-406a-9e37-c343621c8c1c" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/b3ff58f1-6a63-49ab-a3a0-81c803dae918" style="width: 30%; height: auto;">
 
-<img src="https://github.com/shbusy/cafe24pro/assets/136554514/5327264d-3f6d-4c2a-9651-f16501397fad" style="width: 30%; height: auto;">
-
-<img src="https://github.com/shbusy/cafe24pro/assets/136554514/4827911f-81b6-4d55-8a7b-a9204a53c9d5" style="width: 30%; height: auto;">
-
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/62057a6c-3df2-489f-ab6d-30896f11bdbd" style="width: 30%; height: auto;">
 
 
 
 - 다른 사람들의 피드를 구독할 수 있습니다.
+- 
+  <img src="https://github.com/shbusy/pet-diary/assets/136554514/283aaa57-816e-4a6f-a528-1ded67be0263" style="width: 30%; height: auto;">
 
 
 
