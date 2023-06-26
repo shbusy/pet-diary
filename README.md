@@ -44,8 +44,8 @@ Laravel Framework 10.13.5
 
 
 - 다른 사람들의 피드를 구독할 수 있습니다.
-- 
-  <img src="https://github.com/shbusy/pet-diary/assets/136554514/283aaa57-816e-4a6f-a528-1ded67be0263" style="width: 30%; height: auto;">
+
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/283aaa57-816e-4a6f-a528-1ded67be0263" style="width: 30%; height: auto;">
 
 
 
