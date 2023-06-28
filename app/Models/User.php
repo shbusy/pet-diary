@@ -51,4 +51,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Blog::class)
             ->as('subscription');
     }
+
+    // 유저는 여러개의 댓글을 가진다
+    public function comments() {
+        return $this->hasMany(Comment::class);
+}
 }
