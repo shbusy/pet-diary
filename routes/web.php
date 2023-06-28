@@ -30,4 +30,8 @@ Route::controller(\App\Http\Controllers\SubscribeController::class)
     });
 
 Route::middleware('auth')->resource('blogs.posts', \App\Http\Controllers\PostController::class)
-    ->shallow();
+    ->shallow();  // 중첩 사용
+
+Route::middleware('auth')->resource('posts.comments', \App\Http\Controllers\CommentController::class)
+    ->shallow() // 중첩 사용
+    ->only(['store', 'update', 'destroy']);
