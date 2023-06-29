@@ -1,6 +1,6 @@
 # pet-diary
-<!-- ### URL
-http://phplaravel-1036417-3647930.cloudwaysapps.com/ -->
+### URL
+https://pet-diary.store/
 
 
 ### 계획의도
