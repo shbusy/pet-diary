@@ -20,11 +20,12 @@
                 <textarea class="form-control" id="content" rows="3" name="content" required>{{ old('content', $post->content) }}</textarea>
             </div>
 
-            <div class="form-group" style="margin-top: 10px;">
-                <button type="button" class="btn btn-light" id="add_file" style="float: left; margin-right: 10px;">파일첨부</button>
-                <input class="form-control" type="text" id="img_text" style="width: 91%; float: left;" name="img_text" value="{{ old('title', $post->img_link) }}" multiple>
+            <div class="input-group mb-3" style="margin-top: 10px;">
+                <button class="btn btn-light" type="button" id="add_file">파일첨부</button>
+                <input type="text" class="form-control" id="img_text" name="img_text" value="{{ old('title', $post->img_link) }}" readonly>
             </div>
-                <input class="form-control" type="file" id="img" name="img" value="{{ old('title', $post->img_link) }}" style="display: none" multiple>
+
+            <input class="form-control" type="file" id="img" name="img" value="{{ old('title', $post->img_link) }}" style="display: none" multiple>
         </form>
 
         <p class="bs-component">

@@ -18,10 +18,11 @@
             <textarea class="form-control" id="content" rows="3" placeholder="content" name="content" required>{{ old('content') }}</textarea>
         </div>
 
-        <div class="form-group" style="margin-top: 10px;">
-            <button type="button" class="btn btn-light" id="add_file" style="float: left; margin-right: 10px;">파일첨부</button>
-            <input class="form-control" type="text" id="img_text" style="width: 91%; float: left;" name="img_text" value="{{ old('img_link') }}" multiple>
+        <div class="input-group mb-3" style="margin-top: 10px;">
+            <button class="btn btn-light" type="button" id="add_file">파일첨부</button>
+            <input type="text" class="form-control" id="img_text" name="img_text" value="{{ old('img_link') }}" placeholder="선택된 파일이 없습니다." readonly>
         </div>
+
         <input class="form-control" type="file" id="img" name="img" value="{{ old('img_link') }}" style="display: none" multiple>
 
         <p class="bs-component">
