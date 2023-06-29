@@ -20,7 +20,7 @@
                     <label class="form-check-label" for="remember">Auto Login</label>
                 </div>
                 <p class="bs-component">
-                    <button style="margin-top:20px" type="submit" id="login_button" class="btn btn-primary">Login</button>
+                    <button style="margin-top:20px" type="button" id="login_button" class="btn btn-primary">Login</button>
                     <button type="button" style="margin-top:20px" class="btn btn-warning" onclick="location.href='{{ route('register') }}'">Join</button>
                 </p>
             </fieldset>
@@ -29,7 +29,6 @@
     <script>
         $(function (){
             $("#login_button").click(function() {
-                var result;
                 $.ajax({
                     url: "{{ route('login') }}",
                     data: $("#login_form").serialize(),
