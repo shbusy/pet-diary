@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\DateHelper;
 use App\Models\Blog;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -70,8 +71,14 @@ class PostController extends Controller
     {
         $post->created_at_format = DateHelper::DateFormat($post->created_at);
 
+        $comments = $post->comments()
+            ->doesntHave('parent')
+            ->with(['user', 'replies.user'])
+            ->get();
+
         return view('blogs.posts.show', [
-            'post' => $post
+            'post' => $post->loadCount('comments'),
+            'comments' => $comments
         ]);
     }
 
