@@ -3,45 +3,84 @@
 @section('header', $post->blog->name)
 
 @section('content')
-    <div style="width: 100%; text-align: -webkit-center;">
         <div class="col-lg-4">
-            @can(['update', 'delete'], $post)
-                <p class="bs-component">
-                    <button type="button" onclick="location.href='{{ route('posts.edit', $post) }}'" class="btn btn-warning">edit</button>
-                    <button type="submit" class="btn btn-danger" onclick="if(confirm('글을 삭제하시겠습니까?')) { $('#delete_form').submit(); }">delete</button>
-                </p>
-                <form action="{{ route('posts.destroy', $post) }}" method="POST" id="delete_form">
-                    @csrf
-                    @method('DELETE')
+            <p class="bs-component">
+                <button type="button" onclick="location.href='{{ route('blogs.show', $post->blog) }}'" class="btn btn-outline-primary btn-sm" style="width: 100%;">Go Feed</button>{{--목록버튼--}}
+            </p>
 
-                </form>
-            @endcan
-
-            @if($post->img_link)
+            @if($post->img_link){{--글 이미지--}}
                 <article><img src="{{ '/images/'. $post->img_link }}" alt="image" style="width: 100%; border-radius: 5%; margin-bottom: 10px;"></article>
             @endif
-            <div class="list-group" style="margin-bottom: 10px;">
-                    <a href="javascript:void(0);" class="list-group-item list-group-item-action flex-column align-items-start">
+
+            <div class="list-group" style="margin-bottom: 10px;">{{--본문--}}
+                    <a class="list-group-item flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">{{ $post->title }}</h5>
-                            <small class="text-muted">{{ $post->created_at_format }}</small>
+                            <h6 class="mb-1"><strong>{{ $post->title }}</strong></h6>{{--글제목--}}
+                            <small class="text-muted">{{ $post->created_at_format }}</small>{{--날짜--}}
                         </div>
                         <div class="d-flex w-100 justify-content-between">
-                            <p class="mb-1">{{ $post->content }}</p>
+                            <p class="mb-1"><small>{{ $post->content }}</small></p>{{--글내용--}}
                         </div>
                     </a>
             </div>
-            <div class="list-group">{{--댓글 리스트--}}
+
+            <p class="bs-component">{{--수정,삭제버튼--}}
+                @can(['update', 'delete'], $post){{--수정버튼--}}
+                    <button type="button" onclick="location.href='{{ route('posts.edit', $post) }}'" class="btn btn-light btn-sm" style="width: 49%;">✏</button>
+                @endcan
+
+                @can(['update', 'delete'], $post){{--삭제버튼--}}
+                    <button type="submit" class="btn btn-light btn-sm" onclick="if(confirm('글을 삭제하시겠습니까?')) { $('#delete_form').submit(); }" style="width: 49%;">✖</button>
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST" id="delete_form">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                @endcan
+
+        </div>
+
+        <div class="col-lg-4">{{--댓글--}}
+            <div class="list-group">
                 <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Comment
-                        <span class="badge bg-primary rounded-pill">14</span>{{--댓글갯수--}}
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        댓글작성을 오픈 준비중이예요!
-                    </li>
+                    @if($post->comments_count > 0)
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <small>Comment</small>
+                            <span class="badge bg-primary rounded-pill">{{ $post->comments_count }}</span>{{--댓글갯수--}}
+                        </li>
+                        @foreach($comments as $comment)
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <small>{{ $comment->user->name }} : {{ $comment->content }}</small>
+                            </li>
+                        @endforeach
+                    @else
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            No comments
+                        </li>
+                    @endif
                 </ul>
             </div>
+
+            <form action="{{ route('posts.comments.store', $post) }}" id="comment_form" method="POST">
+                <div class="input-group mb-3">
+                    @csrf
+
+                    <input type="text" class="form-control" id="content" name="content" style="border-radius: 0.4rem; border-top-right-radius: 0px; border-bottom-right-radius: 0px;" value="{{ old('content') }}">
+                    <button class="btn btn-primary" type="button" id="add_comment">Add</button>
+                </div>
+            </form>
         </div>
-    </div>
+
+        <script>
+            $(function () {
+                $("#add_comment").click(function (){
+                    $.post("{{ route('posts.comments.store', $post) }}", $("#comment_form").serialize(), function(data) {
+                        if(data.result === "s") {
+                            location.reload();
+                        } else {
+                            alert(data.result);
+                        }
+                    })
+                })
+            })
+        </script>
 @endsection
