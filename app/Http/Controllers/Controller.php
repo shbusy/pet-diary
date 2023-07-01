@@ -22,8 +22,17 @@ class Controller extends BaseController
 
         foreach($randomPosts as $post) {
             $post->created_at_format = DateHelper::DateFormat($post->created_at);
+            $post->loadCount('comments');
         }
 
-        return view('welcome', compact('randomPosts'));
+        $comments = $post->comments()
+            ->doesntHave('parent')
+            ->with(['user', 'replies.user'])
+            ->get();
+
+        return view('welcome', compact('randomPosts'))
+            ->with([
+                'comments' => $comments,
+            ]);
     }
 }
