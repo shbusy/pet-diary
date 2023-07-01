@@ -23,8 +23,7 @@
                         <p>{{ $post->content }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">댓글 상위 2개 노출 (작업중)</li>
-                        <li class="list-group-item">아직 댓글이 없어요. 댓글을 달아주세요 (작업중)</li>
+                        <li class="list-group-item">댓글작성을 오픈 준비중이예요!</li>
                     </ul>
                     <div class="card-footer text-muted">
                         {{ $post->created_at_format }}
