@@ -76,6 +76,10 @@ class PostController extends Controller
             ->with(['user', 'replies.user'])
             ->get();
 
+        foreach ($comments as $comment) {
+            $comment->created_at_format = DateHelper::DateFormat($comment->created_at);
+        }
+
         return view('blogs.posts.show', [
             'post' => $post->loadCount('comments'),
             'comments' => $comments
