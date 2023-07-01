@@ -26,36 +26,36 @@ Laravel Framework 10.13.5
 # Description
 - 로그인하지 않아도 메인에서 랜덤 포스트를 볼 수 있습니다.
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/c055f6ad-901e-41e5-b517-6d2dac49be19" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/0f7747de-bb47-4366-a729-8e0e18d2919b" style="width: 30%; height: auto;">
 
 
 - 로그인하여 내 피드를 만들 수 있습니다.
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/2b11411c-65e7-4731-9db1-0c61dd15d2e2" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/e5bc2da1-f178-429c-a0b9-d8df46622c3b" style="width: 30%; height: auto;">
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/b77764b2-1bc4-4f1c-84a8-7f0d35e1ac5f" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/d1736ca4-d300-4a36-b952-fa01189a114a" style="width: 30%; height: auto;">
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/4a750cda-051d-4d37-8951-05b5a75245c8" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/59eab2d7-17a4-4ace-b5f2-dcbe0b1958d1" style="width: 30%; height: auto;">
 
 
 
 - 피드에 귀여운 반려동물과의 추억을 업로드 할 수 있습니다.
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/b3ff58f1-6a63-49ab-a3a0-81c803dae918" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/bae9e2f0-69d1-4438-84ee-6a1ae93cf264" style="width: 30%; height: auto;">
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/62057a6c-3df2-489f-ab6d-30896f11bdbd" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/50a4a32d-70b6-44fe-818c-c703b1a088f5" style="width: 30%; height: auto;">
 
 
 
 - 다른 사람들의 피드를 구독할 수 있습니다.
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/283aaa57-816e-4a6f-a528-1ded67be0263" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/a47059f4-2343-492f-9eef-d49aab1b2d95" style="width: 30%; height: auto;">
 
 
 
 - 댓글을 작성할 수 있습니다.
 
-<img src="https://github.com/shbusy/pet-diary/assets/136554514/1a364238-8cc7-454f-b9de-86139060a98e" style="width: 30%; height: auto;">
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/c39dda85-6e56-4cfe-872b-1ed8d7614ef5" style="width: 30%; height: auto;">
 
 
 
