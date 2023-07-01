@@ -12,17 +12,7 @@
                 <article><img src="{{ '/images/'. $post->img_link }}" alt="image" style="width: 100%; border-radius: 5%; margin-bottom: 10px;"></article>
             @endif
 
-            <div class="list-group" style="margin-bottom: 10px;">{{--본문--}}
-                    <a class="list-group-item flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-1"><strong>{{ $post->title }}</strong></h6>{{--글제목--}}
-                            <small class="text-muted">{{ $post->created_at_format }}</small>{{--날짜--}}
-                        </div>
-                        <div class="d-flex w-100 justify-content-between">
-                            <p class="mb-1"><small>{{ $post->content }}</small></p>{{--글내용--}}
-                        </div>
-                    </a>
-            </div>
+            @include('layouts.content'){{--본문--}}
 
             <p class="bs-component">{{--수정,삭제버튼--}}
                 @can(['update', 'delete'], $post){{--수정버튼--}}
@@ -49,12 +39,15 @@
                         </li>
                         @foreach($comments as $comment)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <small>{{ $comment->user->name }} : {{ $comment->content }}</small>
+                                <small>
+                                    <strong>{{ $comment->user->name }}</strong> <small class="text-muted">{{ $comment->created_at_format }}</small>
+                                    <br>{{ $comment->content }}
+                                </small>
                             </li>
                         @endforeach
                     @else
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            No comments
+                            <small>No comments</small>
                         </li>
                     @endif
                 </ul>
