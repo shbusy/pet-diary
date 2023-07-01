@@ -19,34 +19,30 @@
                         @endif
                     </div>
 
-                    <div class="col-lg-12">
-                        <div style="margin: 16px;">{{--본문--}}
-                            <a class="list-group-item flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">{{ $post->title }}</h5>
-                                    <small class="text-muted">{{ $post->created_at_format }}</small>
-                                </div>
-                                <div class="d-flex w-100 justify-content-between">
-                                    <p class="mb-1">{{ $post->content }}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    @include('layouts.content'){{--본문--}}
 
                     <ul class="list-group list-group-flush">
                         @if($post->comments_count > 0)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Comment
+                                <small>Comment</small>
                                 <span class="badge bg-primary rounded-pill">{{ $post->comments_count }}</span>{{--댓글갯수--}}
                             </li>
-                            @foreach($comments as $comment)
+                            @foreach($post->comments as $comment)
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <small>{{ $comment->user->name }} : {{ $comment->content }}</small>
+                                    <small>
+                                        <strong>{{ $comment->user->name }}</strong> <small class="text-muted">{{ $comment->created_at_format }}</small>
+                                        <br>{{ $comment->content }}
+                                    </small>
                                 </li>
                             @endforeach
+                            @if($post->comments_count > 2)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <small><a href="{{ route('posts.show', $post) }}" style="text-decoration: none; color: #888;">+ More</a></small>
+                                </li>
+                            @endif
                         @else
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                No comments
+                                <small>No comments</small>
                             </li>
                         @endif
                     </ul>
