@@ -21,13 +21,13 @@ class LoginController extends Controller
 
         if (!auth()->attempt($credentials)) {
             return with([
-                'msg' => "f"
+                'result' => "f"
             ]);
         }
 
         $request->session()->regenerate();
         return with([
-            'msg' => "s",
+            'result' => "s",
             'url' => url()->previous()
         ]);
     }
