@@ -53,9 +53,14 @@ Laravel Framework 10.13.5
 
 
 
+- 댓글을 작성할 수 있습니다.
+
+<img src="https://github.com/shbusy/pet-diary/assets/136554514/1a364238-8cc7-454f-b9de-86139060a98e" style="width: 30%; height: auto;">
+
+
+
 ### 추가예정
 
-- 댓글을 작성할 수 있습니다.
 
 
 - 피드 새글이 올라올 경우 등록한 email 로 알림을 받을 수 있습니다.
