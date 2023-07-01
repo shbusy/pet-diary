@@ -27,7 +27,7 @@ class Post extends Model
 
     // 글은 여러개의 댓글을 가진다
     public function comments() {
-        return $this->morphMany(Comment::class, 'commentablt')
+        return $this->morphMany(Comment::class, 'commentable')
             ->withTrashed(); // 댓글 모델에서 글과의 관계를 다형성으로 설정했기 때문에 hasMany()가 아닌 morphMany() 사용
     }
 }
