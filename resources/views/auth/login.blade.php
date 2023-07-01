@@ -35,9 +35,9 @@
                     dataType: "json",
                     type: "POST",
                     success: function(data) {
-                        if(data.msg === "f") {
+                        if(data.result === "f") {
                             alert("이메일이나 비밀번호가 일치하지 않습니다.");
-                        } else if(data.msg === "s") {
+                        } else if(data.result === "s") {
                             location.href=data.url;
                         }
                     },
