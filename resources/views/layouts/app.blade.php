@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div style="padding-top:50px" class="container">
+        <div style="padding-top:25px" class="container">
             <div class="page-header" style="margin-bottom: 20px;">
                 <h1>@yield('header')</h1>
             </div>
