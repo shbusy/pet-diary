@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DateHelper;
 use App\Models\Blog;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
@@ -67,6 +68,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $post->created_at_format = DateHelper::DateFormat($post->created_at);
+
         return view('blogs.posts.show', [
             'post' => $post
         ]);
