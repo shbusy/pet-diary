@@ -65,6 +65,13 @@
 
         <script>
             $(function () {
+                // 엔터키 submit방지
+                $('input[type="text"]').keydown(function() {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                    }
+                });
+
                 $("#add_comment").click(function (){
                     $.post("{{ route('posts.comments.store', $post) }}", $("#comment_form").serialize(), function(data) {
                         if(data.result === "s") {
