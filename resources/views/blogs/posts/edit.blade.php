@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', '글수정')
-
 @section('header', 'Edit Posts')
 
 @section('content')

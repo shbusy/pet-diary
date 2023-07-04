@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', '메인')
-
 @section('header', 'Our cuties')
 
 @section('content')
