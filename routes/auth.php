@@ -24,3 +24,15 @@ Route::controller(\App\Http\Controllers\Auth\LoginController::class)->group(func
         ->name('logout')
         ->middleware('auth');
 });
+
+Route::middleware('auth')->controller( \App\Http\Controllers\Auth\MyInfoController::class)
+    ->group(function () {
+        Route::get('myinfo/edit', 'showEditForm')
+            ->name('myinfo.edit');
+        Route::post('myinfo/update', 'update')
+            ->name('myinfo.update');
+        Route::post('myinfo/destroy', 'destroy')
+            ->name('myinfo.destroy');
+        Route::get('myinfo/subList', 'showEditForm')
+            ->name('myinfo.subList');
+    });
