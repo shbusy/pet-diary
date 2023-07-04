@@ -17,13 +17,20 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor03">
-                        <ul class="navbar-nav me-auto">
-                    @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('blogs.index') }}">MyFeed</a>
-                        </li>
-                    @endauth
-                        </ul>
+                    <ul class="navbar-nav me-auto">
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('blogs.index') }}">MyFeed</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" onclick="$('#myinfo').toggle();" role="button" aria-haspopup="true" aria-expanded="false">MyInfo</a>
+                                <div class="dropdown-menu" id="myinfo">
+                                    <a class="dropdown-item" href="{{ route('myinfo.edit') }}">MyInfo</a>
+                                    <a class="dropdown-item" href="#">Subscription</a>
+                                </div>
+                            </li>
+                        @endauth
+                    </ul>
 
                     @auth
                         <form action="{{ route('logout') }}" method="POST" id="logout_form">
